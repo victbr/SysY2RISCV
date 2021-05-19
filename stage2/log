@@ -1,0 +1,2 @@
+g++ -Wno-register -O2 -lm -std=c++17 lex.yy2.cpp -c -Idirs
+Makefile:8: recipe for target 'lex.yy2.o' failed
