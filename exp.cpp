@@ -355,7 +355,7 @@ Value transUnaryExp(Type ptr){
 		transFuncRParams(ptr.first->SonNode[2]);
 		if (S1 == "starttime"|| S1 == "stoptime"){
 			Value ret;
-			if (opt == PrintOPT::Stmt)	fprintf(yyout, "param %d\n", lineNo);
+			if (opt == PrintOPT::Stmt)	fprintf(yyout, "param %d\n", ptr.first->lineno);
 			if (opt == PrintOPT::Stmt)	fprintf(yyout, "call f__sysy_%s\n", S1.c_str());
 			ret.second = NumType::m_null;
 		}
