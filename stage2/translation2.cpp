@@ -7,6 +7,7 @@ namespace stage2{
 
 using namespace std;
 
+/*
 void yyerror(char const *s){
     fprintf(stderr, "%s\n", s);
 	fflush(stderr);
@@ -14,7 +15,9 @@ void yyerror(char const *s){
 
 
 FILE *yyout, *yyin;
+*/
 
+extern TreeNode* root;
 int VID;
 map<string, tValue> tVar;
 

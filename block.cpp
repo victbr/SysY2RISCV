@@ -1,5 +1,5 @@
 #include "utils.hpp"
-
+#include "stage2/utils2.hpp"
 
 
 extern std::map<std::string, std::vector<std::pair<int,int> > > Ident2Tid; //ident, id, layer
@@ -13,7 +13,7 @@ extern Value transExp(Type);
 extern Value transAddExp(Type);
 extern void transDecl(Type);
 
-
+extern stage2::TreeNode* pointer;
 extern int tempID, Layer, LID;
 
 std::string myConvert(Value val){
@@ -150,16 +150,17 @@ void transStmt(Type ptr, int brkptr, int ctnptr){
 
 void transStmt_Other(Type ptr, int brkptr, int ctnptr){
 	using std::string;
+	using stage2::option;
+	using std::make_pair;
 
 	switch (ptr.first->SonNode[0].second){
 		case Label::LVal:
 //	LVal EQUAL Exp SEMICOLON
 			{
-
 				auto S1 = myConvertL(transLVal(ptr.first->SonNode[0]));
 				auto S3 = myConvert(transExp(ptr.first->SonNode[2]));
 				if (opt == PrintOPT::Stmt) {
-					fprintf(yyout, "%s = %s\n", S1.c_str(), S3.c_str());			
+						fprintf(yyout, "%s = %s\n", S1.c_str(), S3.c_str());
 				}
 			}
 			break;
@@ -181,7 +182,10 @@ void transStmt_Other(Type ptr, int brkptr, int ctnptr){
 		case Label::WHILE:
 //WHILE LEFT_PARENTHESIS Cond RIGHT_PARENTHESIS Stmt_Other
 			{
-				if (opt == PrintOPT::Stmt) fprintf(yyout, "l%d:\n",LID);
+				using stage2::option;
+				if (opt == PrintOPT::Stmt) {
+						fprintf(yyout, "l%d:\n",LID);
+				}
 				int ctn = LID;				
 				LID++;
 				int brk = LID;				

@@ -1,4 +1,5 @@
 #include "utils.hpp"
+#include "stage2/utils2.hpp"
 
 extern std::vector<Value> temp_for_initval;
 extern std::vector<int> temp_for_initarray;

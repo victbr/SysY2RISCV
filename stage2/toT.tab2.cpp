@@ -1,6 +1,5 @@
 
 
-namespace stage2{
 
 /* A Bison parser, made by GNU Bison 3.0.4.  */
 
@@ -74,12 +73,18 @@ namespace stage2{
 #include <stack>
 #include <vector>
 
+
+namespace stage2{
+
 extern YYSTYPE yylval;
 
+/*
 extern "C"
 {
 	int yylex(void);
 }
+*/
+extern int yylex(void);
 
 extern FILE* yyin;
 extern FILE* yyout;
@@ -1921,7 +1926,7 @@ void yyerror(char const *s){
     fprintf(stderr, "%s\n", s);
 	fflush(stderr);
 }
-
+/*
 int main(int argc, char** args){
 	option = BackEnd::RISCV;
 	for (int i = 1;i < argc;i++){
@@ -1956,5 +1961,6 @@ int main(int argc, char** args){
 	Recycle(root);
 	return 0;
 }
+*/
 
 }

@@ -1,4 +1,5 @@
 #include "utils.hpp"
+#include "stage2/utils2.hpp"
 
 extern void fuckArray(std::vector<Value>& value, int tid, std::vector<int>& arraySize, std::string str);
 extern std::vector<Value> temp_for_initval;

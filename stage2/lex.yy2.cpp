@@ -1,9 +1,7 @@
 
-namespace stage2{
+#line 2 "lex.yy2.cpp"
 
-#line 2 "lex.yy.cpp"
-
-#line 4 "lex.yy.cpp"
+#line 4 "lex.yy2.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -25,6 +23,7 @@ namespace stage2{
 #include <errno.h>
 #include <stdlib.h>
 
+
 /* end standard C headers. */
 
 /* flex integer type definitions */
@@ -44,20 +43,23 @@ namespace stage2{
 #endif
 
 #include <inttypes.h>
+namespace stage2{
 typedef int8_t flex_int8_t;
 typedef uint8_t flex_uint8_t;
 typedef int16_t flex_int16_t;
 typedef uint16_t flex_uint16_t;
 typedef int32_t flex_int32_t;
 typedef uint32_t flex_uint32_t;
+}
 #else
+namespace stage2{
 typedef signed char flex_int8_t;
 typedef short int flex_int16_t;
 typedef int flex_int32_t;
 typedef unsigned char flex_uint8_t; 
 typedef unsigned short int flex_uint16_t;
 typedef unsigned int flex_uint32_t;
-
+}
 /* Limits of integral types. */
 #ifndef INT8_MIN
 #define INT8_MIN               (-128)
@@ -96,6 +98,8 @@ typedef unsigned int flex_uint32_t;
 #endif /* ! FLEXINT_H */
 
 /* begin standard C++ headers. */
+
+
 
 /* TODO: this is always defined, so inline it */
 #define yyconst const
@@ -150,18 +154,22 @@ typedef unsigned int flex_uint32_t;
 
 #ifndef YY_TYPEDEF_YY_BUFFER_STATE
 #define YY_TYPEDEF_YY_BUFFER_STATE
+namespace stage2{
 typedef struct yy_buffer_state *YY_BUFFER_STATE;
+}
 #endif
 
 #ifndef YY_TYPEDEF_YY_SIZE_T
 #define YY_TYPEDEF_YY_SIZE_T
+namespace stage2{
 typedef size_t yy_size_t;
+}
 #endif
-
+namespace stage2{
 extern int yyleng;
 
 extern FILE *yyin, *yyout;
-
+}
 #define EOB_ACT_CONTINUE_SCAN 0
 #define EOB_ACT_END_OF_FILE 1
 #define EOB_ACT_LAST_MATCH 2
@@ -186,6 +194,7 @@ extern FILE *yyin, *yyout;
 
 #ifndef YY_STRUCT_YY_BUFFER_STATE
 #define YY_STRUCT_YY_BUFFER_STATE
+namespace stage2{
 struct yy_buffer_state
 	{
 	FILE *yy_input_file;
@@ -231,7 +240,6 @@ struct yy_buffer_state
 	int yy_fill_buffer;
 
 	int yy_buffer_status;
-
 #define YY_BUFFER_NEW 0
 #define YY_BUFFER_NORMAL 1
 	/* When an EOF's been seen but there's still some text to process
@@ -247,13 +255,14 @@ struct yy_buffer_state
 #define YY_BUFFER_EOF_PENDING 2
 
 	};
+}
 #endif /* !YY_STRUCT_YY_BUFFER_STATE */
-
+namespace stage2{
 /* Stack of input buffers. */
 static size_t yy_buffer_stack_top = 0; /**< index of top of stack. */
 static size_t yy_buffer_stack_max = 0; /**< capacity of stack. */
 static YY_BUFFER_STATE * yy_buffer_stack = NULL; /**< Stack as an array. */
-
+}
 /* We provide macros for accessing buffer states in case in the
  * future we want to put the buffer states in a more general
  * "scanner state".
@@ -268,6 +277,7 @@ static YY_BUFFER_STATE * yy_buffer_stack = NULL; /**< Stack as an array. */
  */
 #define YY_CURRENT_BUFFER_LVALUE (yy_buffer_stack)[(yy_buffer_stack_top)]
 
+namespace stage2{
 /* yy_hold_char holds the character lost when yytext is formed. */
 static char yy_hold_char;
 static int yy_n_chars;		/* number of characters read into yy_ch_buf */
@@ -303,7 +313,7 @@ YY_BUFFER_STATE yy_scan_bytes ( const char *bytes, int len  );
 void *yyalloc ( yy_size_t  );
 void *yyrealloc ( void *, yy_size_t  );
 void yyfree ( void *  );
-
+}
 #define yy_new_buffer yy_create_buffer
 #define yy_set_interactive(is_interactive) \
 	{ \
@@ -324,7 +334,7 @@ void yyfree ( void *  );
 	YY_CURRENT_BUFFER_LVALUE->yy_at_bol = at_bol; \
 	}
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
-
+namespace stage2{
 /* Begin user sect3 */
 typedef flex_uint8_t YY_CHAR;
 
@@ -336,16 +346,17 @@ extern int yylineno;
 int yylineno = 1;
 
 extern char *yytext;
+}
 #ifdef yytext_ptr
 #undef yytext_ptr
 #endif
 #define yytext_ptr yytext
-
+namespace stage2{
 static yy_state_type yy_get_previous_state ( void );
 static yy_state_type yy_try_NUL_trans ( yy_state_type current_state  );
 static int yy_get_next_buffer ( void );
 static void yynoreturn yy_fatal_error ( const char* msg  );
-
+}
 /* Done after the current pattern has been matched and before the
  * corresponding action - sets up yytext.
  */
@@ -357,6 +368,7 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_c_buf_p) = yy_cp;
 #define YY_NUM_RULES 22
 #define YY_END_OF_BUFFER 23
+namespace stage2{
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -477,7 +489,7 @@ static char *yy_last_accepting_cpos;
 
 extern int yy_flex_debug;
 int yy_flex_debug = 0;
-
+}
 /* The intent behind this definition is that it'll catch
  * any uses of REJECT which flex missed.
  */
@@ -485,21 +497,31 @@ int yy_flex_debug = 0;
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
+namespace stage2{
 char *yytext;
+}
 #line 1 "toT.l"
 #line 2 "toT.l"
 #include "utils2.hpp"
 #include "toT.tab2.hpp"
 
 
+
+namespace stage2{
+
+/*
 extern "C"
 {
 	int yylex(void);
 	int yywrap(void);
 }
+*/
+extern	int yylex(void);
+extern	int yywrap(void);
+}
 
-#line 499 "lex.yy.cpp"
-#line 500 "lex.yy.cpp"
+#line 499 "lex.yy2.cpp"
+#line 500 "lex.yy2.cpp"
 
 #define INITIAL 0
 
@@ -514,6 +536,9 @@ extern "C"
 #ifndef YY_EXTRA_TYPE
 #define YY_EXTRA_TYPE void *
 #endif
+
+namespace stage2{
+
 
 static int yy_init_globals ( void );
 
@@ -550,11 +575,12 @@ void yyset_lineno ( int _line_number  );
  * section 1.
  */
 
+
 #ifndef YY_SKIP_YYWRAP
 #ifdef __cplusplus
-extern "C" int yywrap ( void );
+//extern "C" int yywrap ( void );
 #else
-extern int yywrap ( void );
+//extern int yywrap ( void );
 #endif
 #endif
 
@@ -719,7 +745,7 @@ YY_DECL
 #line 26 "toT.l"
 
 
-#line 720 "lex.yy.cpp"
+#line 720 "lex.yy2.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -982,7 +1008,7 @@ YY_RULE_SETUP
 #line 165 "toT.l"
 ECHO;
 	YY_BREAK
-#line 983 "lex.yy.cpp"
+#line 983 "lex.yy2.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1996,6 +2022,5 @@ int yywrap(void)
     return 1;//返回1表示读取全部结束。如果要接着读其它文件，可以这里fopen该文件，
              //文件指针赋给yyin，并返回0  
 }  
-
 
 }

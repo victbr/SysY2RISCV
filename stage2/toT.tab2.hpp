@@ -1,3 +1,4 @@
+namespace stage2{
 /* A Bison parser, made by GNU Bison 3.0.4.  */
 
 /* Bison interface for Yacc-like parsers in C
@@ -74,3 +75,4 @@ extern YYSTYPE yylval;
 int yyparse (void);
 
 #endif /* !YY_YY_TOT_TAB_HPP_INCLUDED  */
+}

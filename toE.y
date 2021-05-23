@@ -1,6 +1,8 @@
 %{
 
 #include "utils.hpp"
+#include "stage2/utils2.hpp"
+#include "stage2/toT.tab2.hpp"
 #include <map>
 #include <list>
 #include <stack>
@@ -20,6 +22,14 @@ extern "C"
 extern FILE* yyin;
 extern FILE* yyout;
 
+
+extern stage2::BackEnd stage2::option;
+extern stage2::TreeNode* stage2::root;
+
+extern void stage2::Recycle(stage2::TreeNode*);
+extern void stage2::Translation(stage2::TreeNode*);
+
+stage2::TreeNode* pointer;
 
 TreeNode* root;
 extern void Translation(TreeNode*);
@@ -1034,12 +1044,17 @@ void myerror(NumType val){
 int main(int argc, char** args){
 lastNo = 1;
 lineNo = 1;
+	stage2::option = stage2::BackEnd::RISCV;
 	for (int i = 1;i < argc;i++){
 		if (args[i][0] == '-'){
 			switch(args[i][1]){
 				case 'S':
 					break;
 				case 'e':
+					stage2::option = stage2::BackEnd::Eeyore;
+					break;
+				case 't':
+					stage2::option = stage2::BackEnd::Tigger;
 					break;
 				case 'o':
 					i++;
@@ -1056,7 +1071,29 @@ lineNo = 1;
 	root = new TreeNode();
 	yyparse();
 
+//	stage2::root = new stage2::TreeNode();
+//	pointer = stage2::root;
+
+	FILE* tmp_out = yyout;
+
+	if (stage2::option != stage2::BackEnd::Eeyore){
+		yyout = fopen("temp.txt","w");
+	}
+
+
 	Translation(root);
 	Recycle(root);
+
+	fclose(yyout);
+	fclose(yyin);
+	if (stage2::option != stage2::BackEnd::Eeyore){
+		stage2::yyout = tmp_out;
+		stage2::yyin = fopen("temp.txt","r");
+		stage2::root = new stage2::TreeNode();
+		stage2::yyparse();
+		stage2::Translation(stage2::root);
+		stage2::Recycle(stage2::root);
+	}
+
 	return 0;
 }

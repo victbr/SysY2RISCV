@@ -108,6 +108,8 @@ typedef std::pair<TreeNode*, Label> Type;
 
 extern TreeNode* root;
 extern BackEnd option;
+extern void Recycle(TreeNode*);
+extern void Translation(TreeNode*);
 
 struct mTYPE{
 	Type type;
