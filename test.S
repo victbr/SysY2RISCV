@@ -807,6 +807,14 @@ return
 return
 end f_rand
 f_main[0][16]
+loadaddr v7 s0
+s1 = 19971231
+s0[0] = s1
+s1 = 19981013
+s0[4] = s1
+s1 = 1000000007
+s0[8] = s1
+loadaddr v9 s0
 call f_getint
 store a0 0
 load 0 t0

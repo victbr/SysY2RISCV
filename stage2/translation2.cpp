@@ -160,7 +160,7 @@ void transInitialization(TreeNode* ptr){
 		int index = ptr->SonNode[2].first->token.m_int;
 		int val = ptr->SonNode[5].first->token.m_int;
 
-		if (val != 0) 
+		//if (val != 0) 
 			tVar[str].arrVal[index/4] = val;
 	}
 }

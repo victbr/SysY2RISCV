@@ -98,7 +98,7 @@ void transFunctionDef(TreeNode* ptr){
 		regHeap[regConvert("a"+to_string(i))].ident = tmp;
 		regHeap[regConvert("a"+to_string(i))].dirty = false;
 	}
-	//if (ident == "f_main") ArrayInit();
+	if (ident == "f_main") ArrayInit();
 
 	transStatements(ptr->SonNode[1].first, PrintType::On);
 //	transFunctionEnd(ptr->SonNode[2].first);
