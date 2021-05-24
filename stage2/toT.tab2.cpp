@@ -1,6 +1,3 @@
-
-
-
 /* A Bison parser, made by GNU Bison 3.0.4.  */
 
 /* Bison implementation for Yacc-like parsers in C
@@ -73,18 +70,14 @@
 #include <stack>
 #include <vector>
 
-
 namespace stage2{
 
 extern YYSTYPE yylval;
 
-/*
-extern "C"
-{
-	int yylex(void);
-}
-*/
-extern int yylex(void);
+//extern "C"
+//{
+extern 	int yylex(void);
+//}
 
 extern FILE* yyin;
 extern FILE* yyout;
@@ -461,10 +454,10 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    42,    42,    43,    47,    51,    55,    59,    70,    75,
-      84,    93,   106,   117,   130,   135,   143,   149,   159,   166,
-     175,   186,   196,   205,   217,   229,   241,   249,   257,   265,
-     273,   283,   292,   302,   309,   318,   326
+       0,    42,    42,    43,    47,    51,    55,    60,    71,    76,
+      85,    94,   108,   119,   132,   137,   145,   151,   161,   168,
+     177,   188,   198,   207,   219,   231,   243,   251,   259,   267,
+     275,   285,   294,   304,   311,   320,   328
 };
 #endif
 
@@ -1308,12 +1301,13 @@ yyreduce:
 
   case 6:
 #line 56 "toT.y" /* yacc.c:1646  */
-    {}
-#line 1304 "toT.tab.cpp" /* yacc.c:1646  */
+    {
+	}
+#line 1305 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 60 "toT.y" /* yacc.c:1646  */
+#line 61 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1322,45 +1316,45 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Declaration);
 	}
-#line 1317 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1318 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 70 "toT.y" /* yacc.c:1646  */
+#line 71 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
 		(yyval.type) = make_pair(node, Label::ArrayTemp);
 	}
-#line 1327 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1328 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 76 "toT.y" /* yacc.c:1646  */
+#line 77 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::ArrayTemp);	
 	}
-#line 1338 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1339 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 85 "toT.y" /* yacc.c:1646  */
+#line 86 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
 		node->SonNode.push_back((yyvsp[-2].type));
 		node->SonNode.push_back((yyvsp[-1].type));
 		node->SonNode.push_back((yyvsp[0].type));
-		(yyval.type) = make_pair(node, Label::ArrayTemp);	
+		(yyval.type) = make_pair(node, Label::Initialization);	
 	}
-#line 1351 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1352 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 94 "toT.y" /* yacc.c:1646  */
+#line 95 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1369,13 +1363,14 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[-3].type));
 		node->SonNode.push_back((yyvsp[-2].type));
 		node->SonNode.push_back((yyvsp[-1].type));
-		(yyval.type) = make_pair(node, Label::ArrayTemp);	
+		node->SonNode.push_back((yyvsp[0].type));
+		(yyval.type) = make_pair(node, Label::Initialization);	
 	}
-#line 1366 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1368 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 107 "toT.y" /* yacc.c:1646  */
+#line 109 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1384,11 +1379,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::FunctionDef);	
 	}
-#line 1379 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1381 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 118 "toT.y" /* yacc.c:1646  */
+#line 120 "toT.y" /* yacc.c:1646  */
     {
 		//printf("asdadsasda?\n");
 		using std::make_pair;
@@ -1399,21 +1394,21 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::FunctionHeader);	
 	}
-#line 1394 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1396 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 130 "toT.y" /* yacc.c:1646  */
+#line 132 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
 		(yyval.type) = make_pair(node, Label::Statements);	
 	}
-#line 1404 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1406 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 136 "toT.y" /* yacc.c:1646  */
+#line 138 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1421,19 +1416,19 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Statements);	
 	}
-#line 1416 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1418 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 144 "toT.y" /* yacc.c:1646  */
+#line 146 "toT.y" /* yacc.c:1646  */
     {
 		(yyval.type) = (yyvsp[-1].type);
 	}
-#line 1424 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1426 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 150 "toT.y" /* yacc.c:1646  */
+#line 152 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1441,33 +1436,33 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::FunctionEnd);	
 	}
-#line 1436 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1438 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 160 "toT.y" /* yacc.c:1646  */
+#line 162 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Statement);	
 	}
-#line 1447 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1449 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 167 "toT.y" /* yacc.c:1646  */
+#line 169 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Statement);	
 	}
-#line 1458 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1460 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 176 "toT.y" /* yacc.c:1646  */
+#line 178 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1478,11 +1473,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1473 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1475 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 187 "toT.y" /* yacc.c:1646  */
+#line 189 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1492,11 +1487,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1487 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1489 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 22:
-#line 197 "toT.y" /* yacc.c:1646  */
+#line 199 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1505,11 +1500,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1500 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1502 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 206 "toT.y" /* yacc.c:1646  */
+#line 208 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1521,11 +1516,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1516 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1518 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 218 "toT.y" /* yacc.c:1646  */
+#line 220 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1537,11 +1532,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1532 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1534 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 230 "toT.y" /* yacc.c:1646  */
+#line 232 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1553,11 +1548,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1548 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1550 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 242 "toT.y" /* yacc.c:1646  */
+#line 244 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1565,11 +1560,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1560 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1562 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 250 "toT.y" /* yacc.c:1646  */
+#line 252 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1577,11 +1572,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1572 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1574 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 258 "toT.y" /* yacc.c:1646  */
+#line 260 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1589,11 +1584,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1584 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1586 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 266 "toT.y" /* yacc.c:1646  */
+#line 268 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1601,11 +1596,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1596 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1598 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 274 "toT.y" /* yacc.c:1646  */
+#line 276 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1615,11 +1610,11 @@ yyreduce:
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1610 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1612 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 284 "toT.y" /* yacc.c:1646  */
+#line 286 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1628,11 +1623,11 @@ yyreduce:
 		//node->SonNode.push_back($3);
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1623 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1625 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 293 "toT.y" /* yacc.c:1646  */
+#line 295 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1640,33 +1635,33 @@ yyreduce:
 		//node->SonNode.push_back($2);
 		(yyval.type) = make_pair(node, Label::Expression);	
 	}
-#line 1635 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1637 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 303 "toT.y" /* yacc.c:1646  */
+#line 305 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::RightValue);	
 	}
-#line 1646 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1648 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 310 "toT.y" /* yacc.c:1646  */
+#line 312 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
 		node->SonNode.push_back((yyvsp[0].type));
 		(yyval.type) = make_pair(node, Label::RightValue);	
 	}
-#line 1657 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1659 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 319 "toT.y" /* yacc.c:1646  */
+#line 321 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1674,11 +1669,11 @@ yyreduce:
 		node->token.m_str = (yyvsp[0].type).first->token.m_str;
 		(yyval.type) = make_pair(node, Label::BinOp);	
 	}
-#line 1669 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1671 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 327 "toT.y" /* yacc.c:1646  */
+#line 329 "toT.y" /* yacc.c:1646  */
     {
 		using std::make_pair;
 		TreeNode* node = new TreeNode();
@@ -1686,11 +1681,11 @@ yyreduce:
 		node->token.m_str = (yyvsp[0].type).first->token.m_str;
 		(yyval.type) = make_pair(node, Label::BinOp);	
 	}
-#line 1681 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1683 "toT.tab.cpp" /* yacc.c:1646  */
     break;
 
 
-#line 1685 "toT.tab.cpp" /* yacc.c:1646  */
+#line 1687 "toT.tab.cpp" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1918,7 +1913,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 335 "toT.y" /* yacc.c:1906  */
+#line 337 "toT.y" /* yacc.c:1906  */
 
 
 
@@ -1926,7 +1921,7 @@ void yyerror(char const *s){
     fprintf(stderr, "%s\n", s);
 	fflush(stderr);
 }
-/*
+
 int main(int argc, char** args){
 	option = BackEnd::RISCV;
 	for (int i = 1;i < argc;i++){
@@ -1961,6 +1956,4 @@ int main(int argc, char** args){
 	Recycle(root);
 	return 0;
 }
-*/
-
 }

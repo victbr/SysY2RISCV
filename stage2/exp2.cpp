@@ -111,8 +111,12 @@ int transExpression(TreeNode* ptr, PrintType type){
 		else yyerror("variant didn't declare.");
 		loadValue2(res, type);
 		if (type == PrintType::On){
-			if (option == BackEnd::Tigger)
+			if (option == BackEnd::Tigger){
 				fprintf(yyout, "%s = %s %s %s\n", regConvert(res.reg).c_str(), regConvert(r1.reg).c_str(), op.c_str(), regConvert(r2.reg).c_str());
+			//	fprintf(stderr,"gggg\n");
+			//	fflush(stderr);
+			//	fflush(yyout);
+			}
 			if (option == BackEnd::RISCV){
 				if (op == "+") fprintf(yyout, "  add %s, %s, %s\n", regConvert(res.reg).c_str(), regConvert(r1.reg).c_str(), regConvert(r2.reg).c_str());
 				if (op == "-") fprintf(yyout, "  sub %s, %s, %s\n", regConvert(res.reg).c_str(), regConvert(r1.reg).c_str(), regConvert(r2.reg).c_str());

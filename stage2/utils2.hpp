@@ -97,6 +97,7 @@ struct tValue{
 struct TreeNode{
 	std::vector<std::pair<TreeNode*, Label> > SonNode;
 	Token token;
+	int lineno;
 	TreeNode(){
 		using std::vector;
 		SonNode = vector<std::pair<TreeNode*, Label> >();

@@ -1,4 +1,3 @@
-namespace stage2{
 /* A Bison parser, made by GNU Bison 3.0.4.  */
 
 /* Bison interface for Yacc-like parsers in C
@@ -31,6 +30,7 @@ namespace stage2{
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
+namespace stage2{
 #ifndef YY_YY_TOT_TAB_HPP_INCLUDED
 # define YY_YY_TOT_TAB_HPP_INCLUDED
 /* Debug traces.  */

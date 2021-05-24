@@ -71,6 +71,7 @@ void Translation(TreeNode* ptr){
 	buffVar.clear();
 	Init();
 	for (auto it = ptr->SonNode.begin(); it != ptr->SonNode.end();it++){
+		//fprintf(stderr, "%d\n",it->second);
 		switch (it->second){
 			case Label::Declaration:
 				transGlobalDeclaration(it->first);
@@ -86,6 +87,9 @@ void Translation(TreeNode* ptr){
 
 				break;
 			default:
+				fflush(yyout);
+				fprintf(stderr,"%d\n", (int) Label::ArrayTemp);
+				fprintf(stderr,"%d\n", (int) it->second);
 				yyerror("translation error");
 				break;		
 		}
@@ -137,6 +141,7 @@ pair<bool,int> transArrayTemp(TreeNode* ptr){
 }
 void transInitialization(TreeNode* ptr){
 
+//printf("segment fault here\n");
 	if (ptr->SonNode.size() == 3){
 //		SYMBOL EQUAL NUM
 		string str = ptr->SonNode[0].first->token.m_str;
@@ -150,9 +155,11 @@ void transInitialization(TreeNode* ptr){
 	}
 	else {
 //    | SYMBOL LEFT_BRACKET NUM RIGHT_BRACKET EQUAL NUM
+//	printf("%d\n", ptr->SonNode.size());
 		string str = ptr->SonNode[0].first->token.m_str;
 		int index = ptr->SonNode[2].first->token.m_int;
 		int val = ptr->SonNode[5].first->token.m_int;
+
 		if (val != 0) 
 			tVar[str].arrVal[index/4] = val;
 	}
